@@ -1,22 +1,34 @@
-# react/typescript/poi/jest boilerplate
-install dependencies:
+# React Boilerplate with Typescript, Jest, cypress.io and poi.js
+
+A bare minimum react-poi-typescript boilerplate with example of unit test and acceptance test (e2e).
+
+## Setup
+to install dependencies
 ```sh
-npm i
+$ npm install
 ```
-run server
-
+## Running
+to run application with hot reloading
 ```
-npm start
+$ npm start
 ```
-
-run tests
+## Testing
+to run unit tests
 ```
-npm test
+$ npm run test:unit
+```
+to run acceptance tests (e2e)
+```
+$ npm run test:e2e
+```
+to run all tests
+```
+$ npm test
 ```
 
 # Recomended VS Code plugins
 * [Jest](https://github.com/jest-community/vscode-jest)
-* [EeditorConfig for VS code](https://github.com/editorconfig/editorconfig-vscode)
+* [EditorConfig for VS code](https://github.com/editorconfig/editorconfig-vscode)
 * [Prettier - Code formatter](https://github.com/prettier/prettier-vscode)
 * [TSLint](https://github.com/Microsoft/vscode-tslint)
 * [Preview](https://github.com/searKing/preview-vscode)
