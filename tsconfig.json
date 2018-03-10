@@ -11,6 +11,9 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "baseUrl": ".",
+        "types": [
+            "jest"
+        ],
         "paths": {
             "@/*": [
                 "src/*"
@@ -22,13 +25,14 @@
             "es2015"
         ]
     },
-    "allowJS": true,
+    "allowJS": false,
     "include": [
         "**/*.d.ts",
         "**/*.tsx",
         "**/*.ts"
     ],
     "exclude": [
-        "node_modules/*"
+        "node_modules/*",
+        "cypress"
     ]
 }

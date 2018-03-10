@@ -6,8 +6,13 @@
   "repository": "https://github.com/grzegorzmoskal/react-boilerplate",
   "scripts": {
     "start": "npx poi --require ts-node/register --config poi.config.ts",
-    "test": "npx jest",
-    "lint": "npx tslint --project tsconfig.json --format stylish"
+    "build": "npx poi build --require ts-node/register --config poi.config.ts",
+    "test:e2e" : "npx cypress run --reporter json",
+    "test:unit": "npx jest",
+    "test" : "npm run test:unit && npm run test:e2e",
+    "lint": "npx tslint --project tsconfig.json --format stylish",
+    "cypress:run": "npx cypress run",
+    "cypress:open": "npx cypress open"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -19,6 +24,7 @@
     "@types/jest": "^22.1.4",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^0.15.0-rc.8",
