@@ -1,6 +1,8 @@
 # React Boilerplate with Typescript, Jest, cypress.io and poi.js
 
-A bare minimum react-poi-typescript boilerplate with example of unit test and acceptance test (e2e).
+A bare minimum react-poi-typescript boilerplate with example of unit test and acceptance test (e2e via cypress.io).
+It runns [prettier](https://github.com/prettier/prettier) on all changed typescript files changed in commit.
+Moreover it also runs [tslint](https://palantir.github.io/tslint/) and unit and acceptance tests before it allows you `git push`.
 
 ## Setup
 to install dependencies
