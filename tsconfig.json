@@ -1,9 +1,34 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "strict": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "jsx": "react"
-  }
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "noEmitHelpers": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "lib": [
+            "dom",
+            "es2015.promise",
+            "es2015"
+        ]
+    },
+    "allowJS": true,
+    "include": [
+        "**/*.d.ts",
+        "**/*.tsx",
+        "**/*.ts"
+    ],
+    "exclude": [
+        "node_modules/*"
+    ]
 }

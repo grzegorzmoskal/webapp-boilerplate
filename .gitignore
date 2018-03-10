@@ -1,3 +1,11 @@
 yarn.lock
 yarn-error.log
-/node_modules/
+node_modules
+dist
+.env
+npm-debug.log
+coverage
+**/*.log
+**/*.swp
+**/*.map
+*~
