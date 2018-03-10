@@ -2,7 +2,7 @@
 
 A bare minimum react-poi-typescript boilerplate with example of unit test and acceptance test (e2e via cypress.io).
 It runns [prettier](https://github.com/prettier/prettier) on all changed typescript files in commit.
-Moreover it also runs [tslint](https://palantir.github.io/tslint/) and unit and acceptance tests before it allows you `git push`.
+Moreover it also runs [tslint](https://palantir.github.io/tslint/) and unit and acceptance tests before it allows you to do `git push`.
 
 ## Setup
 to install dependencies
