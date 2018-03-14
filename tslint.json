@@ -27,8 +27,20 @@
             "allow-undefined-check",
             "allow-null-check"
         ],
+        "object-literal-sort-keys": false,
+        "member-access": [true, "no-public"],
+        "ordered-imports":false,
+        "no-submodule-imports": false,
+        "curly":false,
+        "interface-over-type-literal": false,
         "switch-default": false,
         "use-isnan": true,
+        "ban-types" :[true],
+        "variable-name": [true, "ban-keywords",
+            "check-format",
+            "allow-leading-underscore",
+            "allow-pascal-case",
+            "allow-snake-case"],
         "max-line-length": [
             true,
             120
@@ -36,6 +48,12 @@
         "max-file-line-count": [
             true,
             200
-        ]
-    }
+        ],
+        "no-implicit-dependencies": [true, "dev"]
+
+    },
+    "extends": [
+        "tslint:latest",
+        "tslint-config-prettier"
+      ]
 }
