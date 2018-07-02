@@ -3,7 +3,7 @@ import { sideEfect, extend } from "./utils"
 import { history } from "../views"
 export { getStore } from "./init"
 import { paths } from "../views/index"
-import { AllActions, DictInitPayload } from "./actions"
+import { AllActions } from "./actions"
 // tslint:disable-next-line:no-duplicate-imports
 import * as actions from "./actions"
 export { general as actions, General as Actions, initialState } from "./actions"

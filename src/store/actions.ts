@@ -2,17 +2,11 @@ import { createAction } from "../utils/typedActions"
 
 export const init = "init"
 
-export type CarDictPayload = KV<keyof DBDicts, string>
 export const general = {
     [init]: () => createAction(init)
 }
 
 export const initDictSuccess = "initDictSuccess"
-
-export interface DictInitPayload<T extends keyof DBDicts> {
-    key: T
-    value: DBDicts[T]
-}
 
 export const internal = {
     [initDictSuccess]: <T extends keyof DBDicts>(payload: DictInitPayload<T>) => createAction(initDictSuccess, payload)
