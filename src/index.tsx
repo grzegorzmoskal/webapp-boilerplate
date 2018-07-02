@@ -1,10 +1,12 @@
 import * as React from "react"
 import { render } from "react-dom"
-import { Title } from "./components/Title"
+import { Provider } from "react-redux"
+import { getStore } from "./store"
+import { Routes } from "./views"
+
 render(
-    <div>
-        {process.env.APP_DESCRIPTION}
-        <Title text="Hello world!" />
-    </div>,
+    <Provider store={getStore()}>
+        <Routes />
+    </Provider>,
     document.getElementById("app")
 )

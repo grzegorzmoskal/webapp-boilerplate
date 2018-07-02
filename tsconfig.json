@@ -10,20 +10,24 @@
         "noEmitHelpers": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "baseUrl": ".",
         "types": [
             "jest"
         ],
-        "paths": {
-            "@/*": [
-                "src/*"
-            ]
-        },
         "lib": [
             "dom",
             "es2015.promise",
             "es2015"
-        ]
+        ],
+        "typeRoots": [
+            "src/@types/"
+        ],
+        "baseUrl": "./",
+        "paths": {
+            "*": [
+                "src/@types/*",
+                "*"
+            ]
+        },
     },
     "allowJS": false,
     "include": [
@@ -33,6 +37,7 @@
     ],
     "exclude": [
         "node_modules/*",
+        "scripts",
         "cypress"
     ]
 }

@@ -5,46 +5,60 @@
   "license": "MIT",
   "repository": "https://github.com/grzegorzmoskal/react-boilerplate",
   "scripts": {
-    "start": "npx poi --require ts-node/register --config poi.config.ts --env.APP_DESCRIPTION foo",
-    "build": "npx poi build --require ts-node/register --config poi.config.ts ",
+    "start": "npx poi --require ts-node/register --config poi.config.js",
+    "build": "npx poi build --require ts-node/register --config poi.config.js ",
     "test:e2e": "npx cypress run --reporter json",
     "test:unit": "npx jest",
-    "test": "npm run test:unit && npm run test:e2e",
-    "lint": "npx tslint --project tsconfig.json --format stylish",
+    "test": "npm run test:unit ",
+    "lint": "npx tslint --project tsconfig.json  --format stylish",
     "cypress:run": "npx cypress run",
     "cypress:open": "npx cypress open"
   },
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "firebase": "^5.1.0",
+    "history": "^4.7.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-month-picker": "^1.3.7",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^3.7.2",
+    "redux-loop": "^4.2.6"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.9",
+    "@types/enzyme": "^3.1.10",
     "@types/enzyme-adapter-react-16": "^1.0.2",
-    "@types/jest": "^22.1.4",
-    "@types/react": "^16.0.38",
-    "@types/react-dom": "^16.0.4",
-    "cypress": "^2.1.0",
+    "@types/history": "^4.6.2",
+    "@types/jest": "^22.2.3",
+    "@types/react": "^16.3.14",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-redux": "^5.0.19",
+    "@types/react-router-dom": "^4.2.6",
+    "@types/react-router-redux": "^5.0.2",
+    "awesome-typescript-loader": "^5.0.0",
+    "cypress": "^3.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^0.15.0-rc.8",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.2",
+    "jest": "22.4.3",
     "jest-css-modules": "^1.1.0",
-    "lint-staged": "^7.0.0",
-    "node-sass": "^4.7.2",
+    "jest-localstorage-mock": "^2.2.0",
+    "lint-staged": "^7.1.0",
+    "node-sass": "^4.9.0",
     "poi": "^9.6.13",
     "poi-preset-react": "^9.2.1",
     "poi-preset-typescript": "^9.0.2",
-    "prettier": "^1.11.1",
+    "prettier": "^1.12.1",
     "sass-loader": "^6.0.7",
-    "ts-jest": "^22.4.0",
+    "ts-jest": "^22.4.5",
     "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.10.0",
     "tslint-consistent-codestyle": "^1.12.0",
     "tslint-plugin-prettier": "^1.3.0",
-    "typescript": "^2.8.0-dev.20180314"
+    "typescript": "2.9.2"
   },
   "jest": {
     "transform": {
@@ -54,7 +68,8 @@
       "<rootDir>/src/**/*.spec.(ts|tsx)"
     ],
     "setupFiles": [
-      "<rootDir>/test/setupTests.ts"
+      "<rootDir>/test/setupTests.ts",
+      "jest-localstorage-mock"
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy",
@@ -74,7 +89,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run lint && npm test"
+      "pre-push": "npm run lint && npm test && npm run test:e2e"
     }
   },
   "lint-staged": {

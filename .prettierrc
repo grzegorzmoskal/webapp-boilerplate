@@ -5,6 +5,6 @@
     "tabWidth": 4,
     "trailingComma": "none",
     "arrow-parens": "avoid",
-    "jsx-bracket-same-line": true    
+    "jsx-bracket-same-line": true
 }
 

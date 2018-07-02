@@ -1,4 +1,4 @@
-# React Boilerplate with Typescript, Jest, cypress.io and poi.js
+# React Boilerplate with Typescript, Redux, Redux-loop, Jest, Firebase, cypress.io and poi.js
 
 A bare minimum react-poi-typescript boilerplate with example of unit test and acceptance test (e2e via cypress.io).
 It runns [prettier](https://github.com/prettier/prettier) on all changed typescript files in commit.

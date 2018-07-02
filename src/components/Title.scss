@@ -1,0 +1,11 @@
+.Title {
+    color: black;
+    border: 1px solid #ccc;
+    padding: 4px;
+    &--important {
+        color: orangered;
+    }
+    &__Content {
+        border: 1px solid #eee;
+    }
+}

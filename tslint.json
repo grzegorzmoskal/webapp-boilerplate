@@ -14,8 +14,11 @@
         "no-construct": true,
         "no-debugger": true,
         "no-duplicate-variable": true,
-        "no-empty": true,
+        "no-var-requires": false,
+        "no-empty": false,
         "no-eval": true,
+        "interface-name": [true, "never-prefix"],
+
         "no-invalid-this": [
             true,
             "check-function-in-method"
@@ -47,7 +50,7 @@
         ],
         "max-file-line-count": [
             true,
-            200
+            260
         ],
         "no-implicit-dependencies": [true, "dev"]
 
