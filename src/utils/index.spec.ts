@@ -17,6 +17,8 @@ import {
     isMobile
 } from "."
 
+import { check, integer, array } from "kitimat-jest"
+
 describe("utils", () => {
     describe("repeat()", () => {
         it("repeats 0 times", () => {
@@ -135,6 +137,8 @@ describe("utils", () => {
             expect(areEqual([1, 2, 3], [1, 2, 3])).toBeTruthy()
             expect(areEqual([], [])).toBeTruthy()
         })
+
+        check("that arrays are equal", [array(integer())], arr => expect(areEqual(arr, arr, () => true)).toBeTruthy())
 
         it("success when compare return true", () => {
             expect(areEqual([1, 2], [2, 3], () => true)).toBeTruthy()
