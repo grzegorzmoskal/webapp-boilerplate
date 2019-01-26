@@ -1,31 +1,12 @@
 import * as React from "react"
-interface Props {
-    text: string
-    important?: boolean
-    className?: string
-}
+import { bind } from "../utils/bem"
 import "./Title.scss"
-import { bindBem } from "../utils/bem"
-const { block, element } = bindBem("Title")
 
-export const Title: React.SFC<Props> = ({ text, className, important }) => {
-    let result: JSX.Element[] | string = text
-    const hProps = { className: block({ important }, className) }
-    const hasN = text && text.indexOf("\n") >= 0
-    const hasQuotedN = text && text.indexOf("\\n") >= 0
+const { Block, Element } = bind("Title")
+type Props = { text: string; important?: boolean }
 
-    if (hasN || hasQuotedN) {
-        result = text.split(hasN ? "\n" : "\\n").map((item, index) => (
-            <span key={index}>
-                {index === 0 ? null : <br />}
-                {item}
-            </span>
-        ))
-    }
-
-    return (
-        <h4 {...hProps}>
-            <span className={element("Content")}>{result}</span>
-        </h4>
-    )
-}
+export const Title: React.SFC<Props> = ({ text, important }) => (
+    <Block modifiers={{ important: !!important }}>
+        <Element name="Content">{text}</Element>
+    </Block>
+)

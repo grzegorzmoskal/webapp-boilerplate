@@ -10,6 +10,7 @@
         "noEmitHelpers": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "strictNullChecks": true,
         "types": [
             "jest"
         ],

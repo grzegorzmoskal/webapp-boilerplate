@@ -49,7 +49,7 @@ interface SubscribeParams<N, O> {
     converter: (v: N) => O
 }
 
-const subscribeOn: EventType[] = ["child_changed"]
+const subscribeOn: EventType[] = ["child_changed", "child_added", "child_removed"]
 
 export async function subscribe<T extends keyof DBSchema, T2 extends keyof DBSchema[T]>(
     node: T,
@@ -58,7 +58,10 @@ export async function subscribe<T extends keyof DBSchema, T2 extends keyof DBSch
 ) {
     const collectionRef = getRef(node, path)
     if (onInit) onInit(toArray((await collectionRef.once("value")).val(), converter))
-    if (onChange) subscribeOn.forEach(type => collectionRef.on(type, s => onChange(type, converter(s.val()))))
+    if (onChange)
+        subscribeOn.forEach(type =>
+            collectionRef.limitToFirst(1).on(type, s => onChange(type, converter(s ? s.val() : null)))
+        )
 }
 
 export const updateCollection = <T>(dict: T[], type: EventType, value: T, key: keyof T) => {

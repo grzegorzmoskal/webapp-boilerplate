@@ -3,8 +3,8 @@ import { Action } from "redux"
 
 export const sideEfect = (cmd: () => void) =>
     Cmd.run(cmd, {
-        successActionCreator: () => null,
-        failActionCreator: () => null
+        successActionCreator: () => null as any,
+        failActionCreator: () => null as any
     })
 
 export type Ext<A extends Action = any, TState = RootState> = (

@@ -16,7 +16,7 @@ export const formatParams = (params: any) => {
     return "?" + keys.map(key => key + "=" + encodeURIComponent(params[key])).join("&")
 }
 
-export function request<T>(url: string, data: any = null, bearer: string = null, method = "POST"): Promise<T> {
+export function request<T>(url: string, data: any = null, bearer: string | null = null, method = "POST"): Promise<T> {
     return new Promise<T>((resolve, reject) => {
         let resolved = false
         const client = new XMLHttpRequest()

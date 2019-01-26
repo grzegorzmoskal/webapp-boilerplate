@@ -11,7 +11,7 @@ export const toMinMax = (value: number, min: number, max: number) => (value < mi
 
 export const remap = <T, S = any>(
     vs: SMap<T>,
-    getKey: (t: T, key?: string, index?: number) => string,
+    getKey: (t: T, key: string, index: number) => string,
     getValue: (t: T, key?: string) => S,
     skipNullValue = false
 ): SMap<S> => {
