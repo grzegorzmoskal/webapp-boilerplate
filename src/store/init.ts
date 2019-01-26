@@ -1,33 +1,43 @@
-import { Store, compose, createStore, Dispatch } from "redux"
-import { install } from "redux-loop"
+import { Store, compose, createStore, Dispatch, applyMiddleware } from "redux"
+import { install, combineReducers } from "redux-loop"
+import { connectRouter, routerMiddleware } from "connected-react-router"
+import { createBrowserHistory } from "history"
+
 import { actions, reducer, initialState } from "."
 import * as firebase from "../services/firebase"
 import { toOption } from "../utils"
+// import { routerReducer } from "react-router-redux"
 
 export type MapState<TS, TO = any> = (state: RootState, props: TO) => TS
 export type MapDispatch<TA, TO = any> = (dispatch: Dispatch<any>, props: TO) => TA
 export type TStore = Store<RootState>
 
+let _history: ReturnType<typeof createBrowserHistory> = null as any
+export const getHistory = () => {
+    if (!_history) _history = createBrowserHistory()
+    return _history
+}
+
+let _store: TStore | null = null
 const initStore = () => {
     const { __REDUX_DEVTOOLS_EXTENSION__ = () => (f: any) => f } = window as any
     return createStore(
-        reducer as any,
-        initialState,
+        combineReducers<any>({ app: reducer, router: connectRouter(getHistory()) }),
+        initialState as any,
         compose(
             install(),
-            __REDUX_DEVTOOLS_EXTENSION__()
+            __REDUX_DEVTOOLS_EXTENSION__(),
+            applyMiddleware(routerMiddleware(getHistory()))
         )
     ) as TStore
 }
-
-let store: TStore | null = null
 export const getStore = () => {
-    if (!store) {
-        store = initStore()
-        initFirebase()
-        store.dispatch(actions.init())
+    if (!_store) {
+        _store = initStore()
+        // initFirebase()
+        _store.dispatch(actions.init())
     }
-    return store
+    return _store
 }
 
 export const initFirebase = async () => {
